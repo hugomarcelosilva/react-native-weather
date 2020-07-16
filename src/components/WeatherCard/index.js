@@ -14,13 +14,13 @@ import {
 
 export default function WeatherCard(props) {
   const mainTemp = `${Math.round(
-    Temp.kelvinToCelsius(props.data.main.temp),
+    Temp.kelvinToCelsius(props.data?.main?.temp),
     -1,
   )} °`;
 
   // Returns main weather according to id in brazilian portuguese
   function setDes() {
-    const weatherId = props.data.weather[0].id;
+    const weatherId = props.data?.weather[0]?.id;
     if (weatherId === '800') {
       return 'Céu limpo';
     } else {
@@ -45,9 +45,11 @@ export default function WeatherCard(props) {
     <Container>
       <Content>
         <IconContainer>
-          <WeatherIcon icon={props.data.weather[0].icon} />
+          {props.data?.weather[0]?.icon && (
+            <WeatherIcon icon={props.data.weather[0].icon} />
+          )}
         </IconContainer>
-        <TextCity>{props.data.name}</TextCity>
+        <TextCity>{props.data?.name}</TextCity>
         <TextMainTemp>{mainTemp}</TextMainTemp>
         <TextDescription>{setDes()}</TextDescription>
       </Content>

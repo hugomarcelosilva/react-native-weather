@@ -65,11 +65,6 @@ export default function Home() {
         return (
           <LoadingContainer>
             <WeatherCard data={weather} />
-            <Footer>
-              <ButtonContainer>
-                <Button onPress={handleRefreshButton}>Atualizar</Button>
-              </ButtonContainer>
-            </Footer>
           </LoadingContainer>
         );
       }
@@ -85,6 +80,11 @@ export default function Home() {
   return (
     <Container>
       <Content>{renderClimate()}</Content>
+      <Footer>
+        <ButtonContainer>
+          <Button onPress={handleRefreshButton}>Atualizar</Button>
+        </ButtonContainer>
+      </Footer>
     </Container>
   );
 }
