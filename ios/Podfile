@@ -8,6 +8,14 @@ target 'weatherApp' do
 
   use_react_native!(:path => config["reactNativePath"])
 
+  # Begin Manually added
+  permissions_path = '../node_modules/react-native-permissions/ios'
+
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways.podspec"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse.podspec"
+  
+  # End
+
   target 'weatherAppTests' do
     inherit! :complete
     # Pods for testing
